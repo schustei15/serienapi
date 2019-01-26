@@ -13,7 +13,21 @@ exports.postapi = function(req, res){
 	    console.log("The file was saved!");
 	}); 
 
-	res.send({url: req.originalUrl, type: "delete snippet", callStatus: "success"});
+	res.send({url: req.originalUrl, type: "post gps", callStatus: "success"});
+};
+
+exports.getapi = function(req, res){
+	const fs = require('fs');
+	var test = "bananarama";
+	fs.appendFile("app/api/api.txt", test+"\n", function(err) {
+	    if(err) {
+	        return console.log(err);
+	    }
+
+	    console.log("The file was saved!");
+	}); 
+
+	res.send({url: req.originalUrl, type: "get gps", callStatus: "success"});
 };
 
 exports.error404 =  function(req, res){

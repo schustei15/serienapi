@@ -6,5 +6,8 @@ module.exports = function(app){
 	app.route("/api")
 		.post(functions.postapi);
 
+	app.route("/api/:loc")
+		.get(functions.getapi);
+
 	app.use(functions.error404);
 };
